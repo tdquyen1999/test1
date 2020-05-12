@@ -26,8 +26,13 @@ public class Validation {
                 if (intputValue == null || intputValue.isEmpty()) {
                     System.out.println("Not Accepted Empty!!!");
                 } else {
-                    double validDouble = Double.parseDouble(intputValue);
-                    return validDouble;
+                    double inputIsDouble = Double.parseDouble(intputValue);
+                    if (inputIsDouble < 0) {
+                        System.out.println("Please Enter A Double Number Greater than 0");
+                    } else {
+                        double validDouble = Double.parseDouble(intputValue);
+                        return validDouble;
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("Inputed Value Must Be Number!");

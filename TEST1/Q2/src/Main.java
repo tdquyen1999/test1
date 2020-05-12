@@ -26,14 +26,11 @@ public class Main {
         double moneyPay = 0;
         if (inputkWh <= 25) {
             moneyPay = inputkWh * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh;
-        }
-        if (inputkWh <= 75) {
+        } else if (inputkWh <= 75) {
             moneyPay = 25 * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh + (inputkWh - 25.0) * MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh;
-        }
-        if (inputkWh <= 150) {
+        } else if (inputkWh <= 150) {
             moneyPay = (25 * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh) + (50 * MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh) + (inputkWh - 75) * MONEYPAY_PER_1kWh_FROM_75kWh_TO_150kWh;
-        }
-        if (inputkWh > 150) {
+        } else if (inputkWh > 150) {
             moneyPay = (25 * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh) + (50 * MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh) + (75 * MONEYPAY_PER_1kWh_FROM_75kWh_TO_150kWh) + (inputkWh - 150) * MONEYPAY_PER_1kWh_FROM_150kWh;
         }
         System.out.println("Total Money That You Have to Pay: " + moneyPay);

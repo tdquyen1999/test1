@@ -9,34 +9,32 @@
  * @author Admin
  */
 public class Main {
-    public static final double Money_From_0_To_25_kWh = 1000.0;
-    public static final double Money_From_25_To_75_kWh = 1250.0;
-    public static final double Money_From_75_To_150_kWh = 1800.0;
-    public static final double Money_Over_150kWh = 2500.0;
-    
-    
-    
-    
+
+    static final double MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh = 1000.0;
+    static final double MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh = 1250.0;
+    static final double MONEYPAY_PER_1kWh_FROM_75kWh_TO_150kWh = 1800.0;
+    static final double MONEYPAY_PER_1kWh_FROM_150kWh = 2500.0;
+
     public static void main(String[] args) {
-        solve();
+        displayMoneyPayPerMonth();
     }
-    
-    public static void solve() {
-        Validation v = new Validation();
+
+    public static void displayMoneyPayPerMonth() {
+        Validation validation = new Validation();
         System.out.println("Welcome, ");
-        double inputkWh = v.validateDouble("Enter Total kWh per Month: ");
+        double inputkWh = validation.getValidDoubleNumber("Enter Total kWh per Month: ");
         double moneyPay = 0;
-        if(inputkWh <= 25) {
-            moneyPay = inputkWh * Money_From_0_To_25_kWh;
-        } 
-        if(inputkWh <= 75) {
-            moneyPay = 25 * Money_From_0_To_25_kWh + (inputkWh - 25.0) * Money_From_25_To_75_kWh;
+        if (inputkWh <= 25) {
+            moneyPay = inputkWh * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh;
         }
-        if(inputkWh <= 150) {
-            moneyPay = (25 * Money_From_0_To_25_kWh) + (50 * Money_From_25_To_75_kWh) + (inputkWh - 75) * Money_From_75_To_150_kWh;
-        } 
-        if(inputkWh > 150) {
-            moneyPay = (25 * Money_From_0_To_25_kWh) + (50 * Money_From_25_To_75_kWh) + (75 * Money_From_75_To_150_kWh) + (inputkWh - 150) * Money_Over_150kWh;
+        if (inputkWh <= 75) {
+            moneyPay = 25 * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh + (inputkWh - 25.0) * MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh;
+        }
+        if (inputkWh <= 150) {
+            moneyPay = (25 * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh) + (50 * MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh) + (inputkWh - 75) * MONEYPAY_PER_1kWh_FROM_75kWh_TO_150kWh;
+        }
+        if (inputkWh > 150) {
+            moneyPay = (25 * MONEYPAY_PER_1kWh_FROM_0kWh_TO_25kWh) + (50 * MONEYPAY_PER_1kWh_FROM_25kWh_TO_75kWh) + (75 * MONEYPAY_PER_1kWh_FROM_75kWh_TO_150kWh) + (inputkWh - 150) * MONEYPAY_PER_1kWh_FROM_150kWh;
         }
         System.out.println("Total Money That You Have to Pay: " + moneyPay);
     }

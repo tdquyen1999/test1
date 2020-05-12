@@ -6,16 +6,16 @@ import java.util.Vector;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Admin
  */
-public class New implements INew{
+public class New implements INew {
+
     private int id;
     private String title, publishDate, author, content;
     private float averageRate;
-    private Vector<Integer> rateList = new  Vector<>(3);
+    private Vector<Integer> rateList = new Vector<>(3);
 
     public New() {
     }
@@ -36,10 +36,7 @@ public class New implements INew{
     public void setRateList(Vector<Integer> rateList) {
         this.rateList = rateList;
     }
-    
-    
-    
-    
+
     public int getId() {
         return id;
     }
@@ -83,31 +80,28 @@ public class New implements INew{
     public void setContent(String content) {
         this.content = content;
     }
-    
-    
+
     public void calculate() {
-        float sum = 0;
+        float sumOfRate = 0;
         for (int i = 0; i < rateList.size(); i++) {
             Integer get = rateList.get(i);
-            sum += get;
+            sumOfRate += get;
         }
-        averageRate = (float) (Math.round(sum / rateList.size() * 100.0) / 100.0);
+        averageRate = (float) (Math.round(sumOfRate / rateList.size() * 100.0) / 100.0);
     }
-    
-    
-    
+
     @Override
     public void display() {
-        String rate = "";
+        String rateOfUser = "";
         for (int i = 0; i < rateList.size(); i++) {
             Integer get = rateList.get(i);
-            if(i == rateList.size() - 1){
-                rate = rate +  Integer.toString(get);
+            if (i == rateList.size() - 1) {
+                rateOfUser = rateOfUser + Integer.toString(get);
             } else {
-                rate = rate + Integer.toString(get) + "-";
+                rateOfUser = rateOfUser + Integer.toString(get) + "-";
             }
         }
-        System.out.println("Title: " + getTitle() + " - PublishDate: " + getPublishDate() + " - Author: " + getAuthor() + " - Content: " + getContent() + " - Rate from User: " + rate);
+        System.out.println("Title: " + getTitle() + " - PublishDate: " + getPublishDate() + " - Author: " + getAuthor() + " - Content: " + getContent() + " - Rate from User: " + rateOfUser);
     }
-    
+
 }

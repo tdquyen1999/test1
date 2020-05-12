@@ -9,42 +9,41 @@
  * @author Admin
  */
 public class Square {
-    private float length;
+
+    private float lengthOfSqare;
 
     public Square() {
     }
 
-    public Square(float length) {
-        this.length = length;
+    public Square(float lengthOfSqare) {
+        this.lengthOfSqare = lengthOfSqare;
     }
 
-    public float getLength() {
-        return length;
+    public float getLengthOfSqare() {
+        return lengthOfSqare;
     }
 
-    public void setLength(float length) {
-        this.length = length;
+    public void setLengthOfSqare(float lengthOfSqare) {
+        this.lengthOfSqare = lengthOfSqare;
     }
 
-   
-    
-    public void displayLength() {
-        System.out.println("Edge Length of Square: " + getLength());
+    public void displayLengthOfSquare() {
+        System.out.println("Edge Length of Square: " + getLengthOfSqare());
     }
-    
-    public void displayPerimeter() {
-        System.out.println("Perimeter of Square: " + (getLength() * 4));
+
+    public void displayPerimeterOfSquare() {
+        System.out.println("Perimeter of Square: " + (getLengthOfSqare() * 4));
     }
-    
-    public void displayAcreage() {
-        float areage = (float) Math.pow(getLength(), 2);
+
+    public void displayAcreageOfSquare() {
+        float areage = (float) Math.pow(getLengthOfSqare(), 2);
         areage = (float) (Math.round(areage * 100.0) / 100.0);
         System.out.println("Acreage of Square: " + areage);
     }
-    
+
     public void display() {
-        displayLength();
-        displayPerimeter();
-        displayAcreage();
+        displayLengthOfSquare();
+        displayPerimeterOfSquare();
+        displayAcreageOfSquare();
     }
 }

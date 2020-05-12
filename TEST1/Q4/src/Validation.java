@@ -21,23 +21,23 @@ public class Validation {
         scanner = new Scanner(System.in);
     }
 
-    public int validateOption() {
+    public int getValidOption() {
         while (true) {
             System.out.print("Enter Options: ");
             try {
-                String name = scanner.nextLine().trim();
-                if (name == null || name.isEmpty()) {
+                String inputValue = scanner.nextLine().trim();
+                if ((inputValue == null) || (inputValue.isEmpty())) {
                     System.out.println("Not Accepted Empty Option");
                 } else {
-                    double inputDouble = Double.parseDouble(name);
-                    if (inputDouble - (int) inputDouble != 0) {
+                    double inputIsDouble = Double.parseDouble(inputValue);
+                    if ((inputIsDouble - (int) inputIsDouble) != 0) {
                         System.out.println("Option is Integer Number!");
                     } else {
-                        int option = Integer.parseInt(name);
-                        if (option > 4 || option < 0) {
+                        int validOption = Integer.parseInt(inputValue);
+                        if ((validOption > 4) || (validOption < 0)) {
                             System.out.println("Out Of Range. Please Input in Range [1-4]");
                         } else {
-                            return option;
+                            return validOption;
                         }
                     }
                 }
@@ -47,45 +47,23 @@ public class Validation {
         }
     }
 
-    public int validateInteger(String title) {
+    public int getValidRateOfUser(String title) {
         while (true) {
             System.out.print(title);
             try {
-                String intput = scanner.nextLine().trim();
-                if (intput == null || intput.isEmpty()) {
+                String intputValue = scanner.nextLine().trim();
+                if ((intputValue == null) || (intputValue.isEmpty())) {
                     System.out.println("Not Accepted Empty!!!");
                 } else {
-                    double inputDouble = Double.parseDouble(intput);
-                    if (inputDouble - (int) inputDouble != 0) {
+                    double inputIsDouble = Double.parseDouble(intputValue);
+                    if ((inputIsDouble - (int) inputIsDouble) != 0) {
                         System.out.println("Inputed Value Must Be Integer Number!");
                     } else {
-                        int number = Integer.parseInt(intput);
-                        return number;
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Inputed Value Must Be Integer Number!");
-            }
-        }
-    }
-
-    public int validateRate(String title) {
-        while (true) {
-            System.out.print(title);
-            try {
-                String intput = scanner.nextLine().trim();
-                if (intput == null || intput.isEmpty()) {
-                    System.out.println("Not Accepted Empty!!!");
-                } else {
-                    double inputDouble = Double.parseDouble(intput);
-                    if (inputDouble - (int) inputDouble != 0) {
-                        System.out.println("Inputed Value Must Be Integer Number!");
-                    } else {
-                        int number = Integer.parseInt(intput);
-                        if (number > 10 || number < 1) {
+                        int inputIsInteger = Integer.parseInt(intputValue);
+                        if ((inputIsInteger > 10) || (inputIsInteger < 1)) {
                             System.out.println("Out Of Range. Please Input in Range [1-10]");
                         } else {
-                            return number;
+                            return inputIsInteger;
                         }
                     }
                 }
@@ -95,15 +73,15 @@ public class Validation {
         }
     }
 
-    public String validateString(String title) {
+    public String getValidString(String title) {
         while (true) {
             System.out.print(title);
             try {
-                String intput = scanner.nextLine().trim();
-                if (intput == null || intput.isEmpty()) {
+                String intputValue = scanner.nextLine().trim();
+                if ((intputValue == null) || (intputValue.isEmpty())) {
                     System.out.println("Not Accepted Empty!!!");
                 } else {
-                    return intput;
+                    return intputValue;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -111,20 +89,20 @@ public class Validation {
         }
     }
 
-    public String validateDate(String mess) {
+    public String getValidDate(String title) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         dateFormat.setLenient(false);
         while (true) {
-            System.out.print(mess);
+            System.out.print(title);
             String input = scanner.nextLine();
             try {
-                Date date = dateFormat.parse(input);
+                Date inputDate = dateFormat.parse(input);
                 Date today = new Date();
-                if (date.compareTo(today) > 0) {
+                if (inputDate.compareTo(today) > 0) {
                     System.out.println("Please Enter PublishDate Less than or Equal Today!");
                 } else {
                     dateFormat = new SimpleDateFormat("dd/MMM/yyyy", Locale.ENGLISH);
-                    return dateFormat.format(date);
+                    return dateFormat.format(inputDate);
                 }
             } catch (Exception e) {
                 System.out.println("Input Date Follows Format (dd/MM/yyyy) or Valid Date!");

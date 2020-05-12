@@ -9,15 +9,15 @@
  * @author Admin
  */
 public class Main {
+
     public static void main(String[] args) {
-        Validation v = new Validation();
-        float length = v.validateFloat("Enter Length of Square: ");
-        Square s = new Square(length);
-        s.displayLength();
-        s.displayPerimeter();
-        s.displayAcreage();
-        System.out.println();
-        s.display();
-        
+        Validation validation = new Validation();
+        float length = validation.getValidFloatNumber("Enter Length of Square: ");
+        Square square = new Square(length);
+        square.displayLengthOfSquare();
+        square.displayPerimeterOfSquare();
+        square.displayAcreageOfSquare();
+        square.display();
+
     }
 }
